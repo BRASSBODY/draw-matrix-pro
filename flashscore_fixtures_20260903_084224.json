@@ -1,0 +1,660 @@
+[
+  {
+    "home": "Toulouse",
+    "away": "Lille",
+    "kickoff": "19:45",
+    "league": "Ligue 1\nFRANCE: \nStandings",
+    "url": "https://www.flashscore.com/match/GYlSganB/"
+  },
+  {
+    "home": "Real Sociedad",
+    "away": "Celta Vigo",
+    "kickoff": "20:00",
+    "league": "LaLiga\nSPAIN: \nStandings",
+    "url": "https://www.flashscore.com/match/GzrJ32nL/"
+  },
+  {
+    "home": "ES Setif",
+    "away": "Ben Aknoun",
+    "kickoff": "19:00",
+    "league": "Ligue 1\nALGERIA: \nStandings",
+    "url": "https://www.flashscore.com/match/2TavOJZ7/"
+  },
+  {
+    "home": "El Biar",
+    "away": "Olympique Akbou",
+    "kickoff": "21:00",
+    "league": "Ligue 1\nALGERIA: \nStandings",
+    "url": "https://www.flashscore.com/match/YVt4vuKl/"
+  },
+  {
+    "home": "Alashkert",
+    "away": "Van",
+    "kickoff": "17:00",
+    "league": "Premier League\nARMENIA: \nStandings",
+    "url": "https://www.flashscore.com/match/6qJ374HG/"
+  },
+  {
+    "home": "United Arab Emirates U20",
+    "away": "Iraq U20",
+    "kickoff": "09:30",
+    "league": "AFC Asian Cup U20",
+    "url": "https://www.flashscore.com/match/OEKVM55m/"
+  },
+  {
+    "home": "Kuwait U20",
+    "away": "Yemen U20",
+    "kickoff": "10:00",
+    "league": "AFC Asian Cup U20",
+    "url": "https://www.flashscore.com/match/YR2BZrkg/"
+  },
+  {
+    "home": "Macau U20",
+    "away": "Singapore U20",
+    "kickoff": "10:00",
+    "league": "AFC Asian Cup U20",
+    "url": "https://www.flashscore.com/match/IgidZfC7/"
+  },
+  {
+    "home": "Malaysia U20",
+    "away": "Australia U20",
+    "kickoff": "10:00",
+    "league": "AFC Asian Cup U20",
+    "url": "https://www.flashscore.com/match/M5QVRimp/"
+  },
+  {
+    "home": "North Korea U20",
+    "away": "Iran U20",
+    "kickoff": "10:00",
+    "league": "AFC Asian Cup U20",
+    "url": "https://www.flashscore.com/match/pSetowgT/"
+  },
+  {
+    "home": "Brunei U20",
+    "away": "Myanmar U20",
+    "kickoff": "10:30",
+    "league": "AFC Asian Cup U20",
+    "url": "https://www.flashscore.com/match/4nDg4FBs/"
+  },
+  {
+    "home": "Bangladesh U20",
+    "away": "Syria U20",
+    "kickoff": "12:00",
+    "league": "AFC Asian Cup U20",
+    "url": "https://www.flashscore.com/match/hfdoxrAb/"
+  },
+  {
+    "home": "Bhutan U20",
+    "away": "Chinese Taipei U20",
+    "kickoff": "13:00",
+    "league": "AFC Asian Cup U20",
+    "url": "https://www.flashscore.com/match/Ojvrcb4E/"
+  },
+  {
+    "home": "Cambodia U20",
+    "away": "Japan U20",
+    "kickoff": "13:00",
+    "league": "AFC Asian Cup U20",
+    "url": "https://www.flashscore.com/match/6gGIXMJ5/"
+  },
+  {
+    "home": "Laos U20",
+    "away": "Indonesia U20",
+    "kickoff": "13:00",
+    "league": "AFC Asian Cup U20",
+    "url": "https://www.flashscore.com/match/G6bbp03B/"
+  },
+  {
+    "home": "Palestine U20",
+    "away": "Vietnam U20",
+    "kickoff": "13:00",
+    "league": "AFC Asian Cup U20",
+    "url": "https://www.flashscore.com/match/x2hYnaOG/"
+  },
+  {
+    "home": "Sri Lanka U20",
+    "away": "Maldives U20",
+    "kickoff": "13:30",
+    "league": "AFC Asian Cup U20",
+    "url": "https://www.flashscore.com/match/Y3MN9ylK/"
+  },
+  {
+    "home": "Turkmenistan U20",
+    "away": "Thailand U20",
+    "kickoff": "13:30",
+    "league": "AFC Asian Cup U20",
+    "url": "https://www.flashscore.com/match/hWTaSRsQ/"
+  },
+  {
+    "home": "Afghanistan U20",
+    "away": "Tajikistan U20",
+    "kickoff": "15:00",
+    "league": "AFC Asian Cup U20",
+    "url": "https://www.flashscore.com/match/IcRqfGVq/"
+  },
+  {
+    "home": "India U20",
+    "away": "Uzbekistan U20",
+    "kickoff": "15:00",
+    "league": "AFC Asian Cup U20",
+    "url": "https://www.flashscore.com/match/0KagzMvB/"
+  },
+  {
+    "home": "Kyrgyzstan U20",
+    "away": "Lebanon U20",
+    "kickoff": "15:30",
+    "league": "AFC Asian Cup U20",
+    "url": "https://www.flashscore.com/match/dQFcRQet/"
+  },
+  {
+    "home": "Hong Kong U20",
+    "away": "Qatar U20",
+    "kickoff": "17:00",
+    "league": "AFC Asian Cup U20",
+    "url": "https://www.flashscore.com/match/zgbYio6D/"
+  },
+  {
+    "home": "Oman U20",
+    "away": "Saudi Arabia U20",
+    "kickoff": "17:00",
+    "league": "AFC Asian Cup U20",
+    "url": "https://www.flashscore.com/match/2ajKFlbK/"
+  },
+  {
+    "home": "Bahrain U20",
+    "away": "Jordan U20",
+    "kickoff": "18:30",
+    "league": "AFC Asian Cup U20",
+    "url": "https://www.flashscore.com/match/4EPihf0d/"
+  },
+  {
+    "home": "Manly Utd U20",
+    "away": "NWS Spirit U20",
+    "kickoff": "10:00",
+    "league": "NPL NSW U20",
+    "url": "https://www.flashscore.com/match/29FRILsQ/"
+  },
+  {
+    "home": "Marconi S. U20",
+    "away": "Sydney FC U20",
+    "kickoff": "10:00",
+    "league": "NPL NSW U20",
+    "url": "https://www.flashscore.com/match/z3NueIkJ/"
+  },
+  {
+    "home": "New Caledonia U19",
+    "away": "Solomon Islands U19",
+    "kickoff": "23:00",
+    "league": "OFC Championship U19\nAUSTRALIA & OCEANIA: \nStandings",
+    "url": "https://www.flashscore.com/match/pn0Rnesm/"
+  },
+  {
+    "home": "Isloch",
+    "away": "BATE",
+    "kickoff": "15:00",
+    "league": "Vysshaya Liga\nBELARUS: \nStandings",
+    "url": "https://www.flashscore.com/match/pMMC7hi2/"
+  },
+  {
+    "home": "Anderlecht",
+    "away": "Kortrijk",
+    "kickoff": "19:30",
+    "league": "Jupiler Pro League\nBELGIUM: \nStandings",
+    "url": "https://www.flashscore.com/match/4pWbMP2N/"
+  },
+  {
+    "home": "Gent",
+    "away": "Leuven",
+    "kickoff": "19:30",
+    "league": "Jupiler Pro League\nBELGIUM: \nStandings",
+    "url": "https://www.flashscore.com/match/pGZrQ73b/"
+  },
+  {
+    "home": "America De Cali",
+    "away": "Alianza",
+    "kickoff": "22:00",
+    "league": "Primera A",
+    "url": "https://www.flashscore.com/match/4nDt6aQO/"
+  },
+  {
+    "home": "Omonia",
+    "away": "Pafos",
+    "kickoff": "17:30",
+    "league": "Super Cup\nCYPRUS: \nDraw",
+    "url": "https://www.flashscore.com/match/YwFkHnw2/"
+  },
+  {
+    "home": "FC Copenhagen",
+    "away": "Nordsjaelland",
+    "kickoff": "19:00",
+    "league": "Superliga\nDENMARK: \nStandings",
+    "url": "https://www.flashscore.com/match/xA2hsg4F/"
+  },
+  {
+    "home": "Thisted FC",
+    "away": "Sonderjyske",
+    "kickoff": "17:00",
+    "league": "Betano Pokalen\nDENMARK: \nDraw",
+    "url": "https://www.flashscore.com/match/WSaX1k0M/"
+  },
+  {
+    "home": "U. Catolica",
+    "away": "Aucas",
+    "kickoff": "20:00",
+    "league": "Liga Pro\nECUADOR: \nStandings",
+    "url": "https://www.flashscore.com/match/8E6WXKTQ/"
+  },
+  {
+    "home": "Leones del Norte",
+    "away": "Orense",
+    "kickoff": "22:30",
+    "league": "Liga Pro\nECUADOR: \nStandings",
+    "url": "https://www.flashscore.com/match/Mc8OZtaE/"
+  },
+  {
+    "home": "Al Ahly",
+    "away": "Smouha",
+    "kickoff": "18:00",
+    "league": "Premier League\nEGYPT: \nStandings",
+    "url": "https://www.flashscore.com/match/nqEzanNt/"
+  },
+  {
+    "home": "Rouen",
+    "away": "Valenciennes",
+    "kickoff": "19:45",
+    "league": "Ligue 3\nFRANCE: \nStandings",
+    "url": "https://www.flashscore.com/match/GOVvMla4/"
+  },
+  {
+    "home": "Panathinaikos",
+    "away": "Niki Volos",
+    "kickoff": "19:00",
+    "league": "Greek Cup\nGREECE: \nStandings",
+    "url": "https://www.flashscore.com/match/xUMmvCR1/"
+  },
+  {
+    "home": "Gyor",
+    "away": "Ferencvaros",
+    "kickoff": "18:30",
+    "league": "NB I.\nHUNGARY: \nStandings",
+    "url": "https://www.flashscore.com/match/f7ptlQ1e/"
+  },
+  {
+    "home": "Coal India",
+    "away": "Suruchi Sangha",
+    "kickoff": "10:30",
+    "league": "Calcutta Premier Division\nINDIA: \nStandings",
+    "url": "https://www.flashscore.com/match/YF2nFwX9/"
+  },
+  {
+    "home": "Kalighat SL",
+    "away": "Aryan",
+    "kickoff": "10:30",
+    "league": "Calcutta Premier Division\nINDIA: \nStandings",
+    "url": "https://www.flashscore.com/match/QkavHa2c/"
+  },
+  {
+    "home": "Fajr Sepasi",
+    "away": "Mes Shahr Babak",
+    "kickoff": "16:30",
+    "league": "Persian Gulf Pro League\nIRAN: \nStandings",
+    "url": "https://www.flashscore.com/match/tOCfTNCa/"
+  },
+  {
+    "home": "Al Mosul",
+    "away": "Al Zawraa",
+    "kickoff": "16:45",
+    "league": "Stars League\nIRAQ: \nStandings",
+    "url": "https://www.flashscore.com/match/0WwNnu0L/"
+  },
+  {
+    "home": "Diyala",
+    "away": "Al-Karma",
+    "kickoff": "16:45",
+    "league": "Stars League\nIRAQ: \nStandings",
+    "url": "https://www.flashscore.com/match/2P9ljE6D/"
+  },
+  {
+    "home": "Al Kahraba",
+    "away": "Al Gharraf",
+    "kickoff": "19:00",
+    "league": "Stars League\nIRAQ: \nStandings",
+    "url": "https://www.flashscore.com/match/j3H2aIqR/"
+  },
+  {
+    "home": "Duhok",
+    "away": "Al Quwa Al Jawiya",
+    "kickoff": "19:00",
+    "league": "Stars League\nIRAQ: \nStandings",
+    "url": "https://www.flashscore.com/match/d2PhsJNr/"
+  },
+  {
+    "home": "Hapoel Tel Aviv",
+    "away": "Beitar Jerusalem",
+    "kickoff": "18:30",
+    "league": "Ligat ha'Al\nISRAEL: \nStandings",
+    "url": "https://www.flashscore.com/match/dKS5N2Oa/"
+  },
+  {
+    "home": "Palermo",
+    "away": "Mantova",
+    "kickoff": "17:00",
+    "league": "Coppa Italia\nITALY: \nDraw",
+    "url": "https://www.flashscore.com/match/bHv59va6/"
+  },
+  {
+    "home": "Cagliari",
+    "away": "Verona",
+    "kickoff": "20:00",
+    "league": "Coppa Italia\nITALY: \nDraw",
+    "url": "https://www.flashscore.com/match/W4urpWOa/"
+  },
+  {
+    "home": "Cittadella",
+    "away": "Renate",
+    "kickoff": "16:00",
+    "league": "Coppa Italia Serie C\nITALY: \nDraw",
+    "url": "https://www.flashscore.com/match/02S5qsqe/"
+  },
+  {
+    "home": "Novara",
+    "away": "Livorno",
+    "kickoff": "19:00",
+    "league": "Coppa Italia Serie C\nITALY: \nDraw",
+    "url": "https://www.flashscore.com/match/02bITAvJ/"
+  },
+  {
+    "home": "Trento",
+    "away": "Desenzano",
+    "kickoff": "20:00",
+    "league": "Coppa Italia Serie C\nITALY: \nDraw",
+    "url": "https://www.flashscore.com/match/84PFbVwg/"
+  },
+  {
+    "home": "Al Buqaa",
+    "away": "Doqarah",
+    "kickoff": "17:00",
+    "league": "Premier League\nJORDAN: \nStandings",
+    "url": "https://www.flashscore.com/match/A3GcHCEF/"
+  },
+  {
+    "home": "Abdysh-Ata",
+    "away": "Ozgon",
+    "kickoff": "15:00",
+    "league": "Premier Liga\nKYRGYZSTAN: \nStandings",
+    "url": "https://www.flashscore.com/match/QcHvrZtg/"
+  },
+  {
+    "home": "RFS",
+    "away": "Riga FC",
+    "kickoff": "17:00",
+    "league": "Latvian Cup\nLATVIA: \nDraw",
+    "url": "https://www.flashscore.com/match/SzoQJnRF/"
+  },
+  {
+    "home": "Banga",
+    "away": "FK Panevezys",
+    "kickoff": "17:00",
+    "league": "TOPLYGA\nLITHUANIA: \nStandings",
+    "url": "https://www.flashscore.com/match/8U8YH81N/"
+  },
+  {
+    "home": "FA Siauliai",
+    "away": "Kauno Zalgiris",
+    "kickoff": "15:15",
+    "league": "Lithuanian Cup\nLITHUANIA: \nDraw",
+    "url": "https://www.flashscore.com/match/dWOp3jWg/"
+  },
+  {
+    "home": "Mornar Bar",
+    "away": "Bokelj",
+    "kickoff": "19:00",
+    "league": "Prva Crnogorska Liga\nMONTENEGRO: \nStandings",
+    "url": "https://www.flashscore.com/match/l6wMN9Yp/"
+  },
+  {
+    "home": "Maxaquene",
+    "away": "Ferroviario Beira",
+    "kickoff": "13:00 FRO",
+    "league": "Mocambola\nMOZAMBIQUE: \nStandings",
+    "url": "https://www.flashscore.com/match/Wv8bNk4T/"
+  },
+  {
+    "home": "Viking U19",
+    "away": "Brann U19",
+    "kickoff": "14:00 FRO",
+    "league": "Nasjonal U19 CL",
+    "url": "https://www.flashscore.com/match/zyDmS9q1/"
+  },
+  {
+    "home": "Recoleta",
+    "away": "Cerro Porteno",
+    "kickoff": "22:30",
+    "league": "Copa de Primera",
+    "url": "https://www.flashscore.com/match/naWt04WF/"
+  },
+  {
+    "home": "Rakow",
+    "away": "Gornik Zabrze",
+    "kickoff": "17:00",
+    "league": "Ekstraklasa\nPOLAND: \nStandings",
+    "url": "https://www.flashscore.com/match/ImUnOVfR/"
+  },
+  {
+    "home": "Lech Poznan",
+    "away": "Jagiellonia",
+    "kickoff": "19:30",
+    "league": "Ekstraklasa\nPOLAND: \nStandings",
+    "url": "https://www.flashscore.com/match/M3eIMwyK/"
+  },
+  {
+    "home": "Avia Swidnik",
+    "away": "Wieczysta Krakow",
+    "kickoff": "13:30",
+    "league": "Polish Cup\nPOLAND: \nDraw",
+    "url": "https://www.flashscore.com/match/2Hea6gOa/"
+  },
+  {
+    "home": "Tychy",
+    "away": "LKS Lodz",
+    "kickoff": "16:30",
+    "league": "Polish Cup\nPOLAND: \nDraw",
+    "url": "https://www.flashscore.com/match/KUBLDyWP/"
+  },
+  {
+    "home": "Slask Wroclaw",
+    "away": "Pogon Szczecin",
+    "kickoff": "19:30",
+    "league": "Polish Cup\nPOLAND: \nDraw",
+    "url": "https://www.flashscore.com/match/b3u7Swte/"
+  },
+  {
+    "home": "Al Ahli Doha",
+    "away": "Qatar SC",
+    "kickoff": "15:00",
+    "league": "QSL\nQATAR: \nStandings",
+    "url": "https://www.flashscore.com/match/IsHVsuBN/"
+  },
+  {
+    "home": "Al Sailiya",
+    "away": "Al Arabi",
+    "kickoff": "17:15",
+    "league": "QSL\nQATAR: \nStandings",
+    "url": "https://www.flashscore.com/match/nc71xJYp/"
+  },
+  {
+    "home": "FC Bacau",
+    "away": "Univ. Craiova",
+    "kickoff": "15:30",
+    "league": "Romanian Cup\nROMANIA: \nStandings",
+    "url": "https://www.flashscore.com/match/xlL6V3N5/"
+  },
+  {
+    "home": "Politehnica Timisoara",
+    "away": "FC Rapid Bucuresti",
+    "kickoff": "18:30",
+    "league": "Romanian Cup\nROMANIA: \nStandings",
+    "url": "https://www.flashscore.com/match/h2K41A6t/"
+  },
+  {
+    "home": "Dynamo Moscow",
+    "away": "Akhmat Grozny",
+    "kickoff": "17:30",
+    "league": "Russian Cup",
+    "url": "https://www.flashscore.com/match/6wp3PiOj/"
+  },
+  {
+    "home": "Al Fayha",
+    "away": "Al Kholood",
+    "kickoff": "16:55",
+    "league": "Saudi Professional League\nSAUDI ARABIA: \nStandings",
+    "url": "https://www.flashscore.com/match/EyaKLHoB/"
+  },
+  {
+    "home": "Neom SC",
+    "away": "Al Khaleej",
+    "kickoff": "17:30",
+    "league": "Saudi Professional League\nSAUDI ARABIA: \nStandings",
+    "url": "https://www.flashscore.com/match/bRLi39Vq/"
+  },
+  {
+    "home": "Al Diriyah",
+    "away": "Al Qadsiah",
+    "kickoff": "19:00",
+    "league": "Saudi Professional League\nSAUDI ARABIA: \nStandings",
+    "url": "https://www.flashscore.com/match/6iPa1m0d/"
+  },
+  {
+    "home": "Hibernian",
+    "away": "Hearts",
+    "kickoff": "19:45",
+    "league": "Premiership\nSCOTLAND: \nStandings",
+    "url": "https://www.flashscore.com/match/4G62AIx9/"
+  },
+  {
+    "home": "Mjallby",
+    "away": "Djurgarden",
+    "kickoff": "18:00",
+    "league": "Allsvenskan\nSWEDEN: \nStandings",
+    "url": "https://www.flashscore.com/match/0r1l7M8L/"
+  },
+  {
+    "home": "Basel",
+    "away": "Sion",
+    "kickoff": "19:30",
+    "league": "Super League\nSWITZERLAND: \nStandings",
+    "url": "https://www.flashscore.com/match/2FIMZ2u1/"
+  },
+  {
+    "home": "Lugano",
+    "away": "Servette",
+    "kickoff": "19:30",
+    "league": "Super League\nSWITZERLAND: \nStandings",
+    "url": "https://www.flashscore.com/match/AuMUXtAD/"
+  },
+  {
+    "home": "Igdir FK",
+    "away": "Manisa FK",
+    "kickoff": "15:00",
+    "league": "1. Lig\nTURKEY: \nStandings",
+    "url": "https://www.flashscore.com/match/SdlcAgvJ/"
+  },
+  {
+    "home": "Bodrumspor",
+    "away": "Erokspor",
+    "kickoff": "18:00",
+    "league": "1. Lig\nTURKEY: \nStandings",
+    "url": "https://www.flashscore.com/match/fTBAyWxI/"
+  },
+  {
+    "home": "Bursaspor",
+    "away": "Istanbulspor AS",
+    "kickoff": "18:00",
+    "league": "1. Lig\nTURKEY: \nStandings",
+    "url": "https://www.flashscore.com/match/jZRESzfm/"
+  },
+  {
+    "home": "Kataka",
+    "away": "BUL",
+    "kickoff": "14:00",
+    "league": "Premier League\nUGANDA: \nStandings",
+    "url": "https://www.flashscore.com/match/IFf2Md8T/"
+  },
+  {
+    "home": "Express",
+    "away": "Kampala City",
+    "kickoff": "18:00",
+    "league": "Premier League\nUGANDA: \nStandings",
+    "url": "https://www.flashscore.com/match/thYJvvOc/"
+  },
+  {
+    "home": "Albion",
+    "away": "Progreso",
+    "kickoff": "19:00",
+    "league": "Copa Uruguay\nURUGUAY: \nStandings",
+    "url": "https://www.flashscore.com/match/A3IJ2vCE/"
+  },
+  {
+    "home": "Rentistas",
+    "away": "Plaza Colonia",
+    "kickoff": "19:00",
+    "league": "Copa Uruguay\nURUGUAY: \nStandings",
+    "url": "https://www.flashscore.com/match/8GJ4lli4/"
+  },
+  {
+    "home": "River Plate",
+    "away": "Nacional",
+    "kickoff": "19:30",
+    "league": "Copa Uruguay\nURUGUAY: \nStandings",
+    "url": "https://www.flashscore.com/match/OSTHrJKr/"
+  },
+  {
+    "home": "OKMK",
+    "away": "Xorazm Urganch",
+    "kickoff": "15:00",
+    "league": "Super League\nUZBEKISTAN: \nStandings",
+    "url": "https://www.flashscore.com/match/WhXfJ0Z8/"
+  },
+  {
+    "home": "Rayo Zuliano",
+    "away": "Carabobo",
+    "kickoff": "20:30",
+    "league": "Liga FUTVE",
+    "url": "https://www.flashscore.com/match/0IvDD10C/"
+  },
+  {
+    "home": "Anzoategui FC",
+    "away": "Monagas",
+    "kickoff": "21:00",
+    "league": "Liga FUTVE",
+    "url": "https://www.flashscore.com/match/W41pegpo/"
+  },
+  {
+    "home": "Estudiantes Merida",
+    "away": "Universidad Central",
+    "kickoff": "23:00",
+    "league": "Liga FUTVE",
+    "url": "https://www.flashscore.com/match/pSivHz74/"
+  },
+  {
+    "home": "FAR Rabat (Mar)",
+    "away": "Olympique de Safi (Mar)",
+    "kickoff": "11:00",
+    "league": "Club Friendly\nWORLD:",
+    "url": "https://www.flashscore.com/match/IXyJMV3c/"
+  },
+  {
+    "home": "Levante W (Esp)",
+    "away": "Villarreal W (Esp)",
+    "kickoff": "17:00",
+    "league": "Club Friendly Women\nWORLD:",
+    "url": "https://www.flashscore.com/match/0z4jKPiK/"
+  },
+  {
+    "home": "Al Hilal",
+    "away": "Al Wahda",
+    "kickoff": "14:00 FRO",
+    "league": "Division 1\nYEMEN: \nStandings",
+    "url": "https://www.flashscore.com/match/jqL7EQE5/"
+  }
+]

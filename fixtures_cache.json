@@ -1,0 +1,757 @@
+{
+  "timestamp": "2026-09-03T08:56:18.230067",
+  "fixtures": [
+    {
+      "home_team": "Toulouse",
+      "away_team": "Lille",
+      "event_date": "19:45",
+      "status": "notstarted",
+      "league_name": "Ligue 1\nFRANCE",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Real Sociedad",
+      "away_team": "Celta Vigo",
+      "event_date": "20:00",
+      "status": "notstarted",
+      "league_name": "LaLiga\nSPAIN",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "ES Setif",
+      "away_team": "Ben Aknoun",
+      "event_date": "19:00",
+      "status": "notstarted",
+      "league_name": "Ligue 1\nALGERIA",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "El Biar",
+      "away_team": "Olympique Akbou",
+      "event_date": "21:00",
+      "status": "notstarted",
+      "league_name": "Ligue 1\nALGERIA",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Alashkert",
+      "away_team": "Van",
+      "event_date": "17:00",
+      "status": "notstarted",
+      "league_name": "Premier League\nARMENIA",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "United Arab Emirates U20",
+      "away_team": "Iraq U20",
+      "event_date": "09:30",
+      "status": "notstarted",
+      "league_name": "AFC Asian Cup U20",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Kuwait U20",
+      "away_team": "Yemen U20",
+      "event_date": "10:00",
+      "status": "notstarted",
+      "league_name": "AFC Asian Cup U20",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Macau U20",
+      "away_team": "Singapore U20",
+      "event_date": "10:00",
+      "status": "notstarted",
+      "league_name": "AFC Asian Cup U20",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Malaysia U20",
+      "away_team": "Australia U20",
+      "event_date": "10:00",
+      "status": "notstarted",
+      "league_name": "AFC Asian Cup U20",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "North Korea U20",
+      "away_team": "Iran U20",
+      "event_date": "10:00",
+      "status": "notstarted",
+      "league_name": "AFC Asian Cup U20",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Brunei U20",
+      "away_team": "Myanmar U20",
+      "event_date": "10:30",
+      "status": "notstarted",
+      "league_name": "AFC Asian Cup U20",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Bangladesh U20",
+      "away_team": "Syria U20",
+      "event_date": "12:00",
+      "status": "notstarted",
+      "league_name": "AFC Asian Cup U20",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Bhutan U20",
+      "away_team": "Chinese Taipei U20",
+      "event_date": "13:00",
+      "status": "notstarted",
+      "league_name": "AFC Asian Cup U20",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Cambodia U20",
+      "away_team": "Japan U20",
+      "event_date": "13:00",
+      "status": "notstarted",
+      "league_name": "AFC Asian Cup U20",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Laos U20",
+      "away_team": "Indonesia U20",
+      "event_date": "13:00",
+      "status": "notstarted",
+      "league_name": "AFC Asian Cup U20",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Palestine U20",
+      "away_team": "Vietnam U20",
+      "event_date": "13:00",
+      "status": "notstarted",
+      "league_name": "AFC Asian Cup U20",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Sri Lanka U20",
+      "away_team": "Maldives U20",
+      "event_date": "13:30",
+      "status": "notstarted",
+      "league_name": "AFC Asian Cup U20",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Turkmenistan U20",
+      "away_team": "Thailand U20",
+      "event_date": "13:30",
+      "status": "notstarted",
+      "league_name": "AFC Asian Cup U20",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Afghanistan U20",
+      "away_team": "Tajikistan U20",
+      "event_date": "15:00",
+      "status": "notstarted",
+      "league_name": "AFC Asian Cup U20",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "India U20",
+      "away_team": "Uzbekistan U20",
+      "event_date": "15:00",
+      "status": "notstarted",
+      "league_name": "AFC Asian Cup U20",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Kyrgyzstan U20",
+      "away_team": "Lebanon U20",
+      "event_date": "15:30",
+      "status": "notstarted",
+      "league_name": "AFC Asian Cup U20",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Hong Kong U20",
+      "away_team": "Qatar U20",
+      "event_date": "17:00",
+      "status": "notstarted",
+      "league_name": "AFC Asian Cup U20",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Oman U20",
+      "away_team": "Saudi Arabia U20",
+      "event_date": "17:00",
+      "status": "notstarted",
+      "league_name": "AFC Asian Cup U20",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Bahrain U20",
+      "away_team": "Jordan U20",
+      "event_date": "18:30",
+      "status": "notstarted",
+      "league_name": "AFC Asian Cup U20",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Manly Utd U20",
+      "away_team": "NWS Spirit U20",
+      "event_date": "10:00",
+      "status": "notstarted",
+      "league_name": "NPL NSW U20",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Marconi S. U20",
+      "away_team": "Sydney FC U20",
+      "event_date": "10:00",
+      "status": "notstarted",
+      "league_name": "NPL NSW U20",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "New Caledonia U19",
+      "away_team": "Solomon Islands U19",
+      "event_date": "23:00",
+      "status": "notstarted",
+      "league_name": "OFC Championship U19\nAUSTRALIA & OCEANIA",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Isloch",
+      "away_team": "BATE",
+      "event_date": "15:00",
+      "status": "notstarted",
+      "league_name": "Vysshaya Liga\nBELARUS",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Anderlecht",
+      "away_team": "Kortrijk",
+      "event_date": "19:30",
+      "status": "notstarted",
+      "league_name": "Jupiler Pro League\nBELGIUM",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Gent",
+      "away_team": "Leuven",
+      "event_date": "19:30",
+      "status": "notstarted",
+      "league_name": "Jupiler Pro League\nBELGIUM",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "America De Cali",
+      "away_team": "Alianza",
+      "event_date": "22:00",
+      "status": "notstarted",
+      "league_name": "Primera A",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Omonia",
+      "away_team": "Pafos",
+      "event_date": "17:30",
+      "status": "notstarted",
+      "league_name": "Super Cup\nCYPRUS",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "FC Copenhagen",
+      "away_team": "Nordsjaelland",
+      "event_date": "19:00",
+      "status": "notstarted",
+      "league_name": "Superliga\nDENMARK",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Thisted FC",
+      "away_team": "Sonderjyske",
+      "event_date": "17:00",
+      "status": "notstarted",
+      "league_name": "Betano Pokalen\nDENMARK",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "U. Catolica",
+      "away_team": "Aucas",
+      "event_date": "20:00",
+      "status": "notstarted",
+      "league_name": "Liga Pro\nECUADOR",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Leones del Norte",
+      "away_team": "Orense",
+      "event_date": "22:30",
+      "status": "notstarted",
+      "league_name": "Liga Pro\nECUADOR",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Al Ahly",
+      "away_team": "Smouha",
+      "event_date": "18:00",
+      "status": "notstarted",
+      "league_name": "Premier League\nEGYPT",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Rouen",
+      "away_team": "Valenciennes",
+      "event_date": "19:45",
+      "status": "notstarted",
+      "league_name": "Ligue 3\nFRANCE",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Panathinaikos",
+      "away_team": "Niki Volos",
+      "event_date": "19:00",
+      "status": "notstarted",
+      "league_name": "Greek Cup\nGREECE",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Gyor",
+      "away_team": "Ferencvaros",
+      "event_date": "18:30",
+      "status": "notstarted",
+      "league_name": "NB I.\nHUNGARY",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Coal India",
+      "away_team": "Suruchi Sangha",
+      "event_date": "10:30",
+      "status": "notstarted",
+      "league_name": "Calcutta Premier Division\nINDIA",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Kalighat SL",
+      "away_team": "Aryan",
+      "event_date": "10:30",
+      "status": "notstarted",
+      "league_name": "Calcutta Premier Division\nINDIA",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Fajr Sepasi",
+      "away_team": "Mes Shahr Babak",
+      "event_date": "16:30",
+      "status": "notstarted",
+      "league_name": "Persian Gulf Pro League\nIRAN",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Al Mosul",
+      "away_team": "Al Zawraa",
+      "event_date": "16:45",
+      "status": "notstarted",
+      "league_name": "Stars League\nIRAQ",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Diyala",
+      "away_team": "Al-Karma",
+      "event_date": "16:45",
+      "status": "notstarted",
+      "league_name": "Stars League\nIRAQ",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Al Kahraba",
+      "away_team": "Al Gharraf",
+      "event_date": "19:00",
+      "status": "notstarted",
+      "league_name": "Stars League\nIRAQ",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Duhok",
+      "away_team": "Al Quwa Al Jawiya",
+      "event_date": "19:00",
+      "status": "notstarted",
+      "league_name": "Stars League\nIRAQ",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Hapoel Tel Aviv",
+      "away_team": "Beitar Jerusalem",
+      "event_date": "18:30",
+      "status": "notstarted",
+      "league_name": "Ligat ha'Al\nISRAEL",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Palermo",
+      "away_team": "Mantova",
+      "event_date": "17:00",
+      "status": "notstarted",
+      "league_name": "Coppa Italia\nITALY",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Cagliari",
+      "away_team": "Verona",
+      "event_date": "20:00",
+      "status": "notstarted",
+      "league_name": "Coppa Italia\nITALY",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Cittadella",
+      "away_team": "Renate",
+      "event_date": "16:00",
+      "status": "notstarted",
+      "league_name": "Coppa Italia Serie C\nITALY",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Novara",
+      "away_team": "Livorno",
+      "event_date": "19:00",
+      "status": "notstarted",
+      "league_name": "Coppa Italia Serie C\nITALY",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Trento",
+      "away_team": "Desenzano",
+      "event_date": "20:00",
+      "status": "notstarted",
+      "league_name": "Coppa Italia Serie C\nITALY",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Al Buqaa",
+      "away_team": "Doqarah",
+      "event_date": "17:00",
+      "status": "notstarted",
+      "league_name": "Premier League\nJORDAN",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Abdysh-Ata",
+      "away_team": "Ozgon",
+      "event_date": "15:00",
+      "status": "notstarted",
+      "league_name": "Premier Liga\nKYRGYZSTAN",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "RFS",
+      "away_team": "Riga FC",
+      "event_date": "17:00",
+      "status": "notstarted",
+      "league_name": "Latvian Cup\nLATVIA",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Banga",
+      "away_team": "FK Panevezys",
+      "event_date": "17:00",
+      "status": "notstarted",
+      "league_name": "TOPLYGA\nLITHUANIA",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "FA Siauliai",
+      "away_team": "Kauno Zalgiris",
+      "event_date": "15:15",
+      "status": "notstarted",
+      "league_name": "Lithuanian Cup\nLITHUANIA",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Mornar Bar",
+      "away_team": "Bokelj",
+      "event_date": "19:00",
+      "status": "notstarted",
+      "league_name": "Prva Crnogorska Liga\nMONTENEGRO",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Maxaquene",
+      "away_team": "Ferroviario Beira",
+      "event_date": "13:00 FRO",
+      "status": "notstarted",
+      "league_name": "Mocambola\nMOZAMBIQUE",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Viking U19",
+      "away_team": "Brann U19",
+      "event_date": "14:00 FRO",
+      "status": "notstarted",
+      "league_name": "Nasjonal U19 CL",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Recoleta",
+      "away_team": "Cerro Porteno",
+      "event_date": "22:30",
+      "status": "notstarted",
+      "league_name": "Copa de Primera",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Rakow",
+      "away_team": "Gornik Zabrze",
+      "event_date": "17:00",
+      "status": "notstarted",
+      "league_name": "Ekstraklasa\nPOLAND",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Lech Poznan",
+      "away_team": "Jagiellonia",
+      "event_date": "19:30",
+      "status": "notstarted",
+      "league_name": "Ekstraklasa\nPOLAND",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Avia Swidnik",
+      "away_team": "Wieczysta Krakow",
+      "event_date": "13:30",
+      "status": "notstarted",
+      "league_name": "Polish Cup\nPOLAND",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Tychy",
+      "away_team": "LKS Lodz",
+      "event_date": "16:30",
+      "status": "notstarted",
+      "league_name": "Polish Cup\nPOLAND",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Slask Wroclaw",
+      "away_team": "Pogon Szczecin",
+      "event_date": "19:30",
+      "status": "notstarted",
+      "league_name": "Polish Cup\nPOLAND",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Al Ahli Doha",
+      "away_team": "Qatar SC",
+      "event_date": "15:00",
+      "status": "notstarted",
+      "league_name": "QSL\nQATAR",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Al Sailiya",
+      "away_team": "Al Arabi",
+      "event_date": "17:15",
+      "status": "notstarted",
+      "league_name": "QSL\nQATAR",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "FC Bacau",
+      "away_team": "Univ. Craiova",
+      "event_date": "15:30",
+      "status": "notstarted",
+      "league_name": "Romanian Cup\nROMANIA",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Politehnica Timisoara",
+      "away_team": "FC Rapid Bucuresti",
+      "event_date": "18:30",
+      "status": "notstarted",
+      "league_name": "Romanian Cup\nROMANIA",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Dynamo Moscow",
+      "away_team": "Akhmat Grozny",
+      "event_date": "17:30",
+      "status": "notstarted",
+      "league_name": "Russian Cup",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Al Fayha",
+      "away_team": "Al Kholood",
+      "event_date": "16:55",
+      "status": "notstarted",
+      "league_name": "Saudi Professional League\nSAUDI ARABIA",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Neom SC",
+      "away_team": "Al Khaleej",
+      "event_date": "17:30",
+      "status": "notstarted",
+      "league_name": "Saudi Professional League\nSAUDI ARABIA",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Al Diriyah",
+      "away_team": "Al Qadsiah",
+      "event_date": "19:00",
+      "status": "notstarted",
+      "league_name": "Saudi Professional League\nSAUDI ARABIA",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Hibernian",
+      "away_team": "Hearts",
+      "event_date": "19:45",
+      "status": "notstarted",
+      "league_name": "Premiership\nSCOTLAND",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Mjallby",
+      "away_team": "Djurgarden",
+      "event_date": "18:00",
+      "status": "notstarted",
+      "league_name": "Allsvenskan\nSWEDEN",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Basel",
+      "away_team": "Sion",
+      "event_date": "19:30",
+      "status": "notstarted",
+      "league_name": "Super League\nSWITZERLAND",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Lugano",
+      "away_team": "Servette",
+      "event_date": "19:30",
+      "status": "notstarted",
+      "league_name": "Super League\nSWITZERLAND",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Igdir FK",
+      "away_team": "Manisa FK",
+      "event_date": "15:00",
+      "status": "notstarted",
+      "league_name": "1. Lig\nTURKEY",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Bodrumspor",
+      "away_team": "Erokspor",
+      "event_date": "18:00",
+      "status": "notstarted",
+      "league_name": "1. Lig\nTURKEY",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Bursaspor",
+      "away_team": "Istanbulspor AS",
+      "event_date": "18:00",
+      "status": "notstarted",
+      "league_name": "1. Lig\nTURKEY",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Kataka",
+      "away_team": "BUL",
+      "event_date": "14:00",
+      "status": "notstarted",
+      "league_name": "Premier League\nUGANDA",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Express",
+      "away_team": "Kampala City",
+      "event_date": "18:00",
+      "status": "notstarted",
+      "league_name": "Premier League\nUGANDA",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Albion",
+      "away_team": "Progreso",
+      "event_date": "19:00",
+      "status": "notstarted",
+      "league_name": "Copa Uruguay\nURUGUAY",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Rentistas",
+      "away_team": "Plaza Colonia",
+      "event_date": "19:00",
+      "status": "notstarted",
+      "league_name": "Copa Uruguay\nURUGUAY",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "River Plate",
+      "away_team": "Nacional",
+      "event_date": "19:30",
+      "status": "notstarted",
+      "league_name": "Copa Uruguay\nURUGUAY",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "OKMK",
+      "away_team": "Xorazm Urganch",
+      "event_date": "15:00",
+      "status": "notstarted",
+      "league_name": "Super League\nUZBEKISTAN",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Rayo Zuliano",
+      "away_team": "Carabobo",
+      "event_date": "20:30",
+      "status": "notstarted",
+      "league_name": "Liga FUTVE",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Anzoategui FC",
+      "away_team": "Monagas",
+      "event_date": "21:00",
+      "status": "notstarted",
+      "league_name": "Liga FUTVE",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Estudiantes Merida",
+      "away_team": "Universidad Central",
+      "event_date": "23:00",
+      "status": "notstarted",
+      "league_name": "Liga FUTVE",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "FAR Rabat (Mar)",
+      "away_team": "Olympique de Safi (Mar)",
+      "event_date": "11:00",
+      "status": "notstarted",
+      "league_name": "Club Friendly\nWORLD",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Levante W (Esp)",
+      "away_team": "Villarreal W (Esp)",
+      "event_date": "17:00",
+      "status": "notstarted",
+      "league_name": "Club Friendly Women\nWORLD",
+      "source": "flashscore"
+    },
+    {
+      "home_team": "Al Hilal",
+      "away_team": "Al Wahda",
+      "event_date": "14:00 FRO",
+      "status": "notstarted",
+      "league_name": "Division 1\nYEMEN",
+      "source": "flashscore"
+    }
+  ]
+}
