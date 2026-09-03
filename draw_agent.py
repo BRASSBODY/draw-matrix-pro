@@ -204,43 +204,37 @@ def score_odds_value(odds: float, estimated_prob: float) -> float:
 
 
 def generate_reasoning(event: Dict, odds: Dict, h2h: Dict, draw_prob: float) -> str:
-    """Generate a short reasoning for the recommendation"""
+    """Generate human-readable reasoning for each recommendation"""
     reasons = []
     
-    # H2H reasoning
+    # H2H draw rate
     total = h2h.get('total_matches', 0)
     draws = h2h.get('draws', 0)
-    if total >= 5:
+    if total > 0:
         rate = draws / total
-        if rate >= 0.30:
-            reasons.append(f"High H2H draw rate ({rate:.1%} from {total} meetings)")
-        elif rate <= 0.15:
-            reasons.append(f"Low H2H draw rate ({rate:.1%} from {total} meetings)")
+        reasons.append(f"H2H draw rate: {rate:.1%} ({draws}/{total} meetings)")
     
-    # Odds reasoning
+    # Odds value
     draw_odds = odds.get('draw', 0)
-    if draw_odds:
+    if draw_odds > 0:
         implied = 1 / draw_odds
-        if draw_prob > implied:
-            reasons.append(f"Value odds ({draw_odds:.2f}, implied {implied:.1%})")
+        reasons.append(f"Odds: {draw_odds:.2f} (implied {implied:.1%})")
     
-    # League reasoning
-    league_name = event.get('league_name', '')
-    if league_name in config.LEAGUE_BONUSES:
-        reasons.append(f"League bonus: {league_name}")
+    # League context
+    league = event.get('league_name', 'Unknown')
+    if league != 'Unknown':
+        reasons.append(f"League: {league}")
     
-    # Derby reasoning
+    # Round number (fixed)
+    round_num = event.get('round_number')
+    if round_num is not None and round_num >= 38:
+        reasons.append("Late season (Round 38+)")
+    
+    # Derby
     if event.get('is_local_derby', False):
-        reasons.append("Local derby – extra motivation")
+        reasons.append("Derby match")
     
-    # Motivation reasoning
-    if event.get('round_number', 0) >= 38:
-        reasons.append("Late season – end of campaign")
-    
-    if not reasons:
-        reasons.append("Balanced matchup – statistical edge")
-    
-    return ". ".join(reasons)
+    return " | ".join(reasons)
 
 
 # ----------------------------------------------------------------------
