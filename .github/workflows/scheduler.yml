@@ -2,7 +2,6 @@ name: Draw Matrix Pro Scheduler
 
 on:
   schedule:
-    # Runs 5 times a day: 6:00, 10:00, 14:00, 18:00, 22:00 UTC
     - cron: '0 6,10,14,18,22 * * *'
   workflow_dispatch:
 
@@ -23,10 +22,13 @@ jobs:
       run: |
         pip install requests python-dotenv
     
+    - name: Create .env file from secrets
+      run: |
+        echo "BZZOIRO_TOKEN=${{ secrets.BZZOIRO_TOKEN }}" > .env
+        echo "TELEGRAM_BOT_TOKEN=${{ secrets.TELEGRAM_BOT_TOKEN }}" >> .env
+        echo "TELEGRAM_CHAT_ID=${{ secrets.TELEGRAM_CHAT_ID }}" >> .env
+        echo "DATABASE_PATH=data/draw_matrix_pro.db" >> .env
+    
     - name: Run fixture analysis
-      env:
-        BZZOIRO_TOKEN: ${{ secrets.BZZOIRO_TOKEN }}
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       run: |
         python draw_agent.py fixtures
