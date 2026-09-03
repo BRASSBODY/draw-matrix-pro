@@ -20,15 +20,14 @@ jobs:
     
     - name: Install dependencies
       run: |
-        pip install requests python-dotenv
-    
-    - name: Create .env file from secrets
-      run: |
-        echo "BZZOIRO_TOKEN=${{ secrets.BZZOIRO_TOKEN }}" > .env
-        echo "TELEGRAM_BOT_TOKEN=${{ secrets.TELEGRAM_BOT_TOKEN }}" >> .env
-        echo "TELEGRAM_CHAT_ID=${{ secrets.TELEGRAM_CHAT_ID }}" >> .env
-        echo "DATABASE_PATH=data/draw_matrix_pro.db" >> .env
+        pip install requests python-dotenv supabase
     
     - name: Run fixture analysis
+      env:
+        BZZOIRO_TOKEN: ${{ secrets.BZZOIRO_TOKEN }}
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+        SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
       run: |
         python draw_agent.py fixtures
