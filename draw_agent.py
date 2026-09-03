@@ -377,6 +377,7 @@ def compute_draw_score(event: Dict, odds: Dict, h2h: Dict, stats: Dict, standing
 # ----------------------------------------------------------------------
 
 def generate_reasoning(event: Dict, odds: Dict, h2h: Dict, draw_prob: float) -> str:
+    """Generate human-readable reasoning for each recommendation"""
     reasons = []
     
     # H2H draw rate
@@ -397,7 +398,7 @@ def generate_reasoning(event: Dict, odds: Dict, h2h: Dict, draw_prob: float) -> 
     if league != 'Unknown':
         reasons.append(f"League: {league}")
     
-    # FIXED: Handle None round_number
+    # FIXED: Handle None round_number properly
     round_num = event.get('round_number')
     if round_num is not None and round_num >= 38:
         reasons.append("Late season (Round 38+)")
