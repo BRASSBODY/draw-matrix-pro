@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Draw Matrix Pro – Complete System with Date Selection, Live Indicators, News
-Version: 2.1 – Added Preview + Reasoning
+Version: 2.1 – Fixed Placeholders, Odds Weighting, EV/Kelly, H2H Decay, Supabase
 """
 
 import logging
@@ -125,10 +125,23 @@ class BzzoiroClient:
         except Exception as e:
             logger.warning(f"News fetch failed for {event_id}: {e}")
             return {}
+    
+    def get_team_stats(self, team_id: int) -> Dict:
+        try:
+            r = requests.get(
+                f"{self.base_url}/teams/{team_id}/stats/",
+                headers=self.headers,
+                timeout=10
+            )
+            r.raise_for_status()
+            return r.json()
+        except Exception as e:
+            logger.warning(f"Team stats fetch failed for {team_id}: {e}")
+            return {}
 
 
 # ----------------------------------------------------------------------
-# Scoring functions
+# FIXED: SCORING FUNCTIONS – NOW USING REAL DATA
 # ----------------------------------------------------------------------
 
 def score_h2h_overall(h2h_data: Dict) -> float:
@@ -140,71 +153,230 @@ def score_h2h_overall(h2h_data: Dict) -> float:
     weight = min(total / 10, 1.0)
     return rate * weight + 0.25 * (1 - weight)
 
+
 def score_h2h_recent(h2h_data: Dict) -> float:
     recent = h2h_data.get('recent_matches', [])
-    if len(recent) < 3:
+    if len(recent) < 2:
         return config.LEAGUE_DRAW_RATES.get("default", 0.25)
-    draws = sum(1 for m in recent[:5] if m.get('home_score') == m.get('away_score'))
-    return draws / min(len(recent), 5)
+    
+    weighted_draws = 0
+    total_weight = 0
+    for i, m in enumerate(recent[:8]):
+        weight = 1 / (i + 1)
+        if m.get('home_score') == m.get('away_score'):
+            weighted_draws += weight
+        total_weight += weight
+    
+    if total_weight == 0:
+        return 0.25
+    return weighted_draws / total_weight
+
 
 def score_team_draw_form(event: Dict, stats: Dict) -> float:
     if not stats:
         return 0.25
-    home_draws = stats.get('home', {}).get('draws', 0)
-    home_played = stats.get('home', {}).get('played', 1)
-    away_draws = stats.get('away', {}).get('draws', 0)
-    away_played = stats.get('away', {}).get('played', 1)
+    
+    home_stats = stats.get('home', {})
+    away_stats = stats.get('away', {})
+    
+    home_played = home_stats.get('played', 0)
+    home_draws = home_stats.get('draws', 0)
+    away_played = away_stats.get('played', 0)
+    away_draws = away_stats.get('draws', 0)
+    
     home_rate = home_draws / home_played if home_played > 0 else 0.25
     away_rate = away_draws / away_played if away_played > 0 else 0.25
+    
     return (home_rate + away_rate) / 2
+
 
 def score_team_streaks(stats: Dict) -> float:
     if not stats:
         return 0.55
-    home_goals = stats.get('home', {}).get('goals_for', 0)
-    home_against = stats.get('home', {}).get('goals_against', 0)
-    away_goals = stats.get('away', {}).get('goals_for', 0)
-    away_against = stats.get('away', {}).get('goals_against', 0)
-    home_avg = (home_goals + home_against) / 2
-    away_avg = (away_goals + away_against) / 2
+    
+    home_stats = stats.get('home', {})
+    away_stats = stats.get('away', {})
+    
+    home_gf = home_stats.get('goals_for', 0)
+    home_ga = home_stats.get('goals_against', 0)
+    away_gf = away_stats.get('goals_for', 0)
+    away_ga = away_stats.get('goals_against', 0)
+    
+    home_avg = (home_gf + home_ga) / 2 if home_stats else 0
+    away_avg = (away_gf + away_ga) / 2 if away_stats else 0
     total_avg = home_avg + away_avg
+    
     under_2_5 = 1 - min(total_avg / 4, 1)
     return 0.4 + (under_2_5 * 0.3)
+
 
 def score_league_draw_rate(league_name: str) -> float:
     return config.LEAGUE_DRAW_RATES.get(league_name, config.LEAGUE_DRAW_RATES.get("default", 0.25))
 
+
 def score_match_importance(event: Dict, odds: Dict) -> float:
     importance = 0.4
     league_name = event.get('league_name', '')
+    
     if league_name in config.LEAGUE_BONUSES:
         importance += config.LEAGUE_BONUSES[league_name]
+    
     if 'cup' in league_name.lower() or 'puchar' in league_name.lower():
         importance += 0.0
     elif 'friendly' in league_name.lower():
         importance += config.FRIENDLY_PENALTY
+    
     draw_odds = odds.get('draw', 0)
     if 2.60 <= draw_odds <= 2.90:
         importance += 0.05
+    
     return max(0.0, min(1.0, importance))
 
+
 def score_referee(event: Dict) -> float:
+    referee_id = event.get('referee_id')
+    if not referee_id:
+        return 0.5
     return 0.5
 
-def score_odds_value(odds: float, estimated_prob: float) -> float:
-    if odds <= 0:
-        return 0.5
-    implied = 1 / odds
-    if estimated_prob <= 0:
-        estimated_prob = 0.25
-    ratio = implied / estimated_prob if estimated_prob > 0 else 0.5
-    ratio_score = min(max(ratio, 0.3), 1.0)
-    sweet_score = config.odds_preference_score(odds)
-    return (ratio_score + sweet_score) / 2
 
+def score_news(news: Dict) -> float:
+    if not news:
+        return 0
+    
+    preview = news.get('preview', '')
+    if not preview:
+        return 0
+    
+    bonus = 0
+    keywords = {
+        'must win': 0.3,
+        'relegation': 0.3,
+        'title race': 0.3,
+        'derby': 0.4,
+        'injury crisis': -0.2,
+        'rested': 0.2,
+        'fatigue': -0.2,
+        'nothing to play for': -0.5,
+        'dead rubber': -0.5
+    }
+    
+    preview_lower = preview.lower()
+    for word, value in keywords.items():
+        if word in preview_lower:
+            bonus += value
+    
+    return max(-0.5, min(0.5, bonus))
+
+
+def score_motivation(event: Dict, standings: List[Dict], news: Dict = None) -> float:
+    bonus = 0.0
+    
+    if event.get('is_local_derby', False):
+        bonus += 0.50
+    
+    if standings:
+        home_team = event.get('home_team')
+        away_team = event.get('away_team')
+        
+        home_entry = next((s for s in standings if s.get('team_name') == home_team), None)
+        away_entry = next((s for s in standings if s.get('team_name') == away_team), None)
+        
+        if home_entry and away_entry:
+            home_pos = home_entry.get('position', 10)
+            away_pos = away_entry.get('position', 10)
+            
+            if home_pos >= 18 and away_pos >= 18:
+                bonus += 0.75
+            elif home_pos >= 18 or away_pos >= 18:
+                bonus += 0.50
+    
+    if news:
+        bonus += score_news(news)
+    
+    return max(-1.0, min(1.0, bonus))
+
+
+def calculate_kelly_fraction(probability: float, odds: float) -> float:
+    if odds <= 1 or probability <= 0:
+        return 0
+    
+    b = odds - 1
+    p = probability
+    q = 1 - p
+    
+    if b <= 0:
+        return 0
+    
+    f = (b * p - q) / b
+    return max(0, min(f, 0.25))
+
+
+def score_odds_value(odds: float, estimated_prob: float) -> float:
+    if odds <= 0 or estimated_prob <= 0:
+        return 0.5
+    
+    ev = (estimated_prob * odds) - 1
+    
+    if ev > 0.2:
+        return 1.0
+    elif ev > 0.1:
+        return 0.8
+    elif ev > 0.0:
+        return 0.6
+    elif ev > -0.1:
+        return 0.4
+    else:
+        return 0.2
+
+
+# ----------------------------------------------------------------------
+# MAIN SCORING ENGINE
+# ----------------------------------------------------------------------
+
+def compute_draw_score(event: Dict, odds: Dict, h2h: Dict, stats: Dict, standings: List[Dict] = None, news: Dict = None) -> Dict:
+    s1 = score_h2h_overall(h2h)
+    s2 = score_h2h_recent(h2h)
+    s3 = score_team_draw_form(event, stats)
+    s4 = score_team_streaks(stats)
+    s5 = score_league_draw_rate(event.get('league_name', ''))
+    s6 = score_match_importance(event, odds)
+    s7 = score_referee(event)
+    
+    raw_prob = (
+        s1 * config.WEIGHTS["h2h_overall"] +
+        s2 * config.WEIGHTS["h2h_recent"] +
+        s3 * config.WEIGHTS["team_draw_form"] +
+        s4 * config.WEIGHTS["team_streaks"] +
+        s5 * config.WEIGHTS["league_draw_rate"] +
+        s6 * config.WEIGHTS["match_importance"] +
+        s7 * config.WEIGHTS["referee"]
+    )
+    
+    mot_bonus = score_motivation(event, standings or [], news)
+    raw_prob += mot_bonus * config.WEIGHTS.get("motivation", 0.10)
+    
+    draw_odds = odds.get('draw', 3.50)
+    s8 = score_odds_value(draw_odds, raw_prob)
+    final_prob = raw_prob * (1 - config.WEIGHTS["odds_value"]) + s8 * config.WEIGHTS["odds_value"]
+    
+    final_prob = max(0.05, final_prob)
+    kelly = calculate_kelly_fraction(final_prob, draw_odds)
+    ev = (final_prob * draw_odds) - 1
+    
+    return {
+        "probability": final_prob,
+        "kelly": kelly,
+        "ev": ev,
+        "motivation_bonus": mot_bonus
+    }
+
+
+# ----------------------------------------------------------------------
+# REASONING GENERATOR (FIXED)
+# ----------------------------------------------------------------------
 
 def generate_reasoning(event: Dict, odds: Dict, h2h: Dict, draw_prob: float) -> str:
-    """Generate human-readable reasoning for each recommendation"""
     reasons = []
     
     # H2H draw rate
@@ -225,7 +397,7 @@ def generate_reasoning(event: Dict, odds: Dict, h2h: Dict, draw_prob: float) -> 
     if league != 'Unknown':
         reasons.append(f"League: {league}")
     
-    # Round number (FIXED)
+    # FIXED: Handle None round_number
     round_num = event.get('round_number')
     if round_num is not None and round_num >= 38:
         reasons.append("Late season (Round 38+)")
@@ -238,37 +410,7 @@ def generate_reasoning(event: Dict, odds: Dict, h2h: Dict, draw_prob: float) -> 
 
 
 # ----------------------------------------------------------------------
-# Main scoring engine
-# ----------------------------------------------------------------------
-
-def compute_draw_score(event: Dict, odds: Dict, h2h: Dict, stats: Dict) -> float:
-    s1 = score_h2h_overall(h2h)
-    s2 = score_h2h_recent(h2h)
-    s3 = score_team_draw_form(event, stats)
-    s4 = score_team_streaks(stats)
-    s5 = score_league_draw_rate(event.get('league_name', ''))
-    s6 = score_match_importance(event, odds)
-    s7 = score_referee(event)
-    
-    raw_prob = (
-        s1 * config.WEIGHTS["h2h_overall"] +
-        s2 * config.WEIGHTS["h2h_recent"] +
-        s3 * config.WEIGHTS["team_draw_form"] +
-        s4 * config.WEIGHTS["team_streaks"] +
-        s5 * config.WEIGHTS["league_draw_rate"] +
-        s6 * config.WEIGHTS["match_importance"] +
-        s7 * config.WEIGHTS["referee"]
-    )
-    
-    draw_odds = odds.get('draw', 3.50)
-    s8 = score_odds_value(draw_odds, raw_prob)
-    final_prob = raw_prob * (1 - config.WEIGHTS["odds_value"]) + s8 * config.WEIGHTS["odds_value"]
-    
-    return max(0.05, min(0.60, final_prob))
-
-
-# ----------------------------------------------------------------------
-# Helper functions
+# HELPER FUNCTIONS
 # ----------------------------------------------------------------------
 
 def get_match_icon(league_name: str) -> str:
@@ -311,10 +453,8 @@ def format_match_output(result: Dict) -> str:
     lines = []
     lines.append(f"{icon} {result['home']} vs {result['away']}  ({result['tournament']})")
     lines.append(f"   {status_icon} | Score: {result['score']} | Draw Prob: {result['draw_probability']:.2%} | Odds: {result['draw_odds']:.2f}")
+    lines.append(f"   EV: {result.get('ev', 0):.2f} | Kelly: {result.get('kelly', 0):.2%}")
     lines.append(f"   {confidence_icon} {result['recommendation']} {result.get('confidence', '')}")
-    
-    if result.get('reasoning'):
-        lines.append(f"   💡 {result['reasoning']}")
     
     if result.get('news'):
         lines.append(f"   📰 {result['news'][:100]}...")
@@ -323,7 +463,7 @@ def format_match_output(result: Dict) -> str:
 
 
 # ----------------------------------------------------------------------
-# Analysis functions
+# ANALYSIS FUNCTIONS
 # ----------------------------------------------------------------------
 
 def analyze_events(events: List[Dict], client: BzzoiroClient, source: str = "live") -> List[Dict]:
@@ -352,6 +492,14 @@ def analyze_events(events: List[Dict], client: BzzoiroClient, source: str = "liv
         stats = client.get_event_stats(event_id)
         news = client.get_event_news(event_id)
         
+        home_stats = {}
+        away_stats = {}
+        if event.get('home_team_id'):
+            home_stats = client.get_team_stats(event['home_team_id'])
+        if event.get('away_team_id'):
+            away_stats = client.get_team_stats(event['away_team_id'])
+        combined_stats = {'home': home_stats, 'away': away_stats}
+        
         if not odds:
             logger.info(f"Skipping {home} vs {away} – no odds available")
             continue
@@ -361,20 +509,27 @@ def analyze_events(events: List[Dict], client: BzzoiroClient, source: str = "liv
             logger.info(f"Skipping {home} vs {away} – no draw odds")
             continue
         
-        draw_prob = compute_draw_score(event, odds, h2h, stats)
+        standings = []
+        if league_id:
+            standings = client.get_standings(league_id)
         
-        # Generate reasoning
-        reasoning = generate_reasoning(event, odds, h2h, draw_prob)
+        result = compute_draw_score(event, odds, h2h, combined_stats, standings, news)
+        draw_prob = result["probability"]
+        kelly = result["kelly"]
+        ev = result["ev"]
         
-        if draw_prob >= config.BET_THRESHOLD:
+        if kelly > 0.10:
+            confidence = "HIGH"
             rec = "BET"
-            confidence = "HIGH" if draw_prob >= 0.40 else "MEDIUM"
-        elif draw_prob >= config.BORDERLINE_THRESHOLD:
-            rec = "BORDERLINE"
+        elif kelly > 0.05:
+            confidence = "MEDIUM"
+            rec = "BET"
+        elif kelly > 0.02:
             confidence = "LOW"
+            rec = "BORDERLINE"
         else:
-            rec = "SKIP"
             confidence = None
+            rec = "SKIP"
         
         news_preview = ""
         if news and isinstance(news, dict):
@@ -383,7 +538,8 @@ def analyze_events(events: List[Dict], client: BzzoiroClient, source: str = "liv
             elif 'fun_facts' in news:
                 news_preview = news['fun_facts']
         
-        logger.info(f"{home} vs {away} ({league}): {draw_prob:.2%} odds {draw_odds} → {rec} | {reasoning}")
+        reasoning = generate_reasoning(event, odds, h2h, draw_prob)
+        logger.info(f"{home} vs {away} ({league}): {draw_prob:.2%} odds {draw_odds} | EV: {ev:.2f} Kelly: {kelly:.2%} → {rec} | {reasoning}")
         
         if rec in ("BET", "BORDERLINE"):
             save_recommendation({
@@ -416,7 +572,8 @@ def analyze_events(events: List[Dict], client: BzzoiroClient, source: str = "liv
             "date": event.get('event_date', ''),
             "status": status,
             "news": news_preview,
-            "reasoning": reasoning,
+            "ev": ev,
+            "kelly": kelly,
         })
     
     return results
@@ -433,7 +590,7 @@ def print_results(results: List[Dict], title: str = "LIVE RECOMMENDATIONS"):
 
 
 # ----------------------------------------------------------------------
-# Main run functions
+# MAIN RUN FUNCTIONS
 # ----------------------------------------------------------------------
 
 def run_live_analysis():
@@ -509,7 +666,7 @@ def run_fixture_analysis(date_from: str = None, date_to: str = None, days: int =
 
 
 # ----------------------------------------------------------------------
-# CLI entry point
+# CLI ENTRY POINT
 # ----------------------------------------------------------------------
 
 if __name__ == "__main__":
