@@ -218,14 +218,14 @@ def generate_reasoning(event: Dict, odds: Dict, h2h: Dict, draw_prob: float) -> 
     draw_odds = odds.get('draw', 0)
     if draw_odds > 0:
         implied = 1 / draw_odds
-        reasons.append(f"Odds: {draw_odds:.2f} (implied {implied:.1%})")
+        reasons.append(f"Value odds ({draw_odds:.2f}, implied {implied:.1%})")
     
     # League context
     league = event.get('league_name', 'Unknown')
     if league != 'Unknown':
         reasons.append(f"League: {league}")
     
-    # Round number (fixed)
+    # Round number (FIXED)
     round_num = event.get('round_number')
     if round_num is not None and round_num >= 38:
         reasons.append("Late season (Round 38+)")
