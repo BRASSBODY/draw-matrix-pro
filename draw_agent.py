@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
 Draw Matrix Pro – Complete System with Date Selection, Live Indicators, News
-Version: 2.1
+Version: 2.1 – Fixed Placeholders, Odds Weighting, EV/Kelly, H2H Decay, Supabase
 """
 
 import logging
 import os
 import json
+import glob
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional
 import requests
@@ -50,13 +51,56 @@ class BzzoiroClient:
             r.raise_for_status()
             result = r.json()
             events = result.get('results', []) or result.get('events', [])
-            if events:
-                logger.info(f"Bzzoiro: {len(events)} fixtures")
-                return events
+            
+            # Fetch league names for any events missing them
+            for e in events:
+                if not e.get('league_name') and e.get('league_id'):
+                    e['league_name'] = self.get_league_name(e['league_id'])
+            
+            return events
         except Exception as e:
             logger.warning(f"Bzzoiro fixtures failed: {e}")
-        
-        return []
+            return []
+    
+    def search_match_by_teams(self, home_team: str, away_team: str, date: str = None) -> Optional[Dict]:
+        """Search Bzzoiro for a match between two teams by name and date"""
+        try:
+            params = {"team_name": home_team, "limit": 30}
+            if date:
+                params["date_from"] = date
+                params["date_to"] = date
+            
+            r = requests.get(
+                f"{self.base_url}/events/",
+                headers=self.headers,
+                params=params,
+                timeout=10
+            )
+            r.raise_for_status()
+            events = r.json().get('events', []) or r.json().get('results', [])
+            
+            # Clean names for matching
+            def clean(name):
+                return name.lower().replace("fc", "").replace("cf", "").replace("ud", "").replace("sad", "").strip()
+            
+            home_clean = clean(home_team)
+            away_clean = clean(away_team)
+            
+            for e in events:
+                e_home = clean(e.get('home_team', ''))
+                e_away = clean(e.get('away_team', ''))
+                
+                # Exact match on team names
+                if (e_home == home_clean and e_away == away_clean) or (e_home == away_clean and e_away == home_clean):
+                    # Fetch league name if missing
+                    if not e.get('league_name') and e.get('league_id'):
+                        e['league_name'] = self.get_league_name(e['league_id'])
+                    return e
+            
+            return None
+        except Exception as e:
+            logger.debug(f"Match search failed: {e}")
+            return None
     
     def get_standings(self, league_id: int) -> List[Dict]:
         try:
@@ -138,6 +182,43 @@ class BzzoiroClient:
         except Exception as e:
             logger.warning(f"Team stats fetch failed for {team_id}: {e}")
             return {}
+
+
+# ----------------------------------------------------------------------
+# LOAD FLASHSCORE JSON DIRECTLY
+# ----------------------------------------------------------------------
+
+def load_flashscore_json() -> List[Dict]:
+    """Load the latest FlashScore JSON file directly"""
+    files = glob.glob("flashscore_fixtures_*.json")
+    if not files:
+        return []
+    
+    latest = max(files)
+    try:
+        with open(latest, "r") as f:
+            fixtures = json.load(f)
+            logger.info(f"📦 Loaded {len(fixtures)} fixtures from {latest}")
+            return fixtures
+    except Exception as e:
+        logger.warning(f"Failed to load {latest}: {e}")
+        return []
+
+def convert_flashscore_to_bzzoiro(flashscore_fixtures: List[Dict]) -> List[Dict]:
+    """Convert FlashScore format to Bzzoiro event format"""
+    events = []
+    for f in flashscore_fixtures:
+        match_id = f.get('url', '').split('/')[-2] if f.get('url') else f"fs_{f.get('home', '')[:3]}_{f.get('away', '')[:3]}"
+        events.append({
+            'id': match_id,
+            'home_team': f.get('home', ''),
+            'away_team': f.get('away', ''),
+            'league_name': f.get('league', 'Unknown'),
+            'event_date': f.get('kickoff', ''),
+            'status': 'notstarted',
+            'source': 'flashscore'
+        })
+    return events
 
 
 # ----------------------------------------------------------------------
@@ -468,8 +549,26 @@ def analyze_events(events: List[Dict], client: BzzoiroClient, source: str = "liv
         
         league = 'Unknown'
         league_id = event.get('league_id')
-        if league_id:
+        
+        # If the event_id is not a Bzzoiro ID (e.g., from FlashScore), search by team names
+        if event_id and not str(event_id).isdigit():
+            date_str = event.get('event_date', '').split('T')[0] if event.get('event_date') else None
+            bzzoiro_match = client.search_match_by_teams(home, away, date_str)
+            if bzzoiro_match:
+                event_id = bzzoiro_match.get('id')
+                league = bzzoiro_match.get('league_name') or client.get_league_name(bzzoiro_match.get('league_id'))
+                league_id = bzzoiro_match.get('league_id')
+                logger.info(f"✅ Found Bzzoiro match: {home} vs {away} (ID: {event_id})")
+            else:
+                logger.info(f"Skipping {home} vs {away} – no Bzzoiro match found")
+                continue
+        elif league_id:
             league = client.get_league_name(league_id)
+        elif event.get('league_name'):
+            league = event.get('league_name')
+        
+        # Update event with league name for scoring
+        event['league_name'] = league
         
         status = event.get('status', '')
         
@@ -484,12 +583,19 @@ def analyze_events(events: List[Dict], client: BzzoiroClient, source: str = "liv
         stats = client.get_event_stats(event_id)
         news = client.get_event_news(event_id)
         
+        # Team stats (optional – may 404)
         home_stats = {}
         away_stats = {}
         if event.get('home_team_id'):
-            home_stats = client.get_team_stats(event['home_team_id'])
+            try:
+                home_stats = client.get_team_stats(event['home_team_id'])
+            except:
+                pass
         if event.get('away_team_id'):
-            away_stats = client.get_team_stats(event['away_team_id'])
+            try:
+                away_stats = client.get_team_stats(event['away_team_id'])
+            except:
+                pass
         combined_stats = {'home': home_stats, 'away': away_stats}
         
         if not odds:
@@ -503,7 +609,10 @@ def analyze_events(events: List[Dict], client: BzzoiroClient, source: str = "liv
         
         standings = []
         if league_id:
-            standings = client.get_standings(league_id)
+            try:
+                standings = client.get_standings(league_id)
+            except:
+                pass
         
         result = compute_draw_score(event, odds, h2h, combined_stats, standings, news)
         draw_prob = result["probability"]
@@ -535,7 +644,7 @@ def analyze_events(events: List[Dict], client: BzzoiroClient, source: str = "liv
         
         if rec in ("BET", "BORDERLINE"):
             save_recommendation({
-                "event_id": str(event_id),
+                "event_id": str(event_id) if event_id else f"fs_{home}_{away}",
                 "home_team": home,
                 "away_team": away,
                 "tournament": league,
@@ -633,16 +742,23 @@ def run_fixture_analysis(date_from: str = None, date_to: str = None, days: int =
     
     client = BzzoiroClient(api_token)
     
-    try:
-        events = client.get_events_by_date(date_from, date_to)
-        if events:
-            logger.info(f"Bzzoiro: {len(events)} fixtures")
-        else:
-            logger.info("No fixtures found from Bzzoiro")
+    # STEP 1: Try loading from FlashScore JSON (your scraper)
+    flashscore_data = load_flashscore_json()
+    if flashscore_data:
+        events = convert_flashscore_to_bzzoiro(flashscore_data)
+        logger.info(f"📦 FlashScore JSON: {len(events)} fixtures")
+    else:
+        # STEP 2: Fallback to Bzzoiro
+        try:
+            events = client.get_events_by_date(date_from, date_to)
+            if events:
+                logger.info(f"Bzzoiro: {len(events)} fixtures")
+            else:
+                logger.info("No fixtures found")
+                return
+        except Exception as e:
+            logger.error(f"Failed to fetch fixtures: {e}")
             return
-    except Exception as e:
-        logger.error(f"Failed to fetch fixtures: {e}")
-        return
     
     results = analyze_events(events, client, source="fixture")
     print_results(results, f"FIXTURE RECOMMENDATIONS ({date_from} to {date_to})")
@@ -668,14 +784,17 @@ if __name__ == "__main__":
         run_live_analysis()
     
     elif sys.argv[1] == "today":
-        run_fixture_analysis(days=1)
+        today = datetime.now().strftime("%Y-%m-%d")
+        run_fixture_analysis(today, today)
     
     elif sys.argv[1] == "tomorrow":
         tomorrow = (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
         run_fixture_analysis(tomorrow, tomorrow)
     
     elif sys.argv[1] == "fixtures":
-        run_fixture_analysis(days=3)
+        # Use today only – your scraper only gets today's games
+        today = datetime.now().strftime("%Y-%m-%d")
+        run_fixture_analysis(today, today)
     
     elif sys.argv[1] == "date" and len(sys.argv) == 4:
         run_fixture_analysis(sys.argv[2], sys.argv[3])
@@ -686,6 +805,6 @@ Usage:
   python draw_agent.py               # Live matches
   python draw_agent.py today         # Today's fixtures
   python draw_agent.py tomorrow      # Tomorrow's fixtures
-  python draw_agent.py fixtures      # Next 3 days fixtures
+  python draw_agent.py fixtures      # Today's fixtures (from scraper)
   python draw_agent.py date YYYY-MM-DD YYYY-MM-DD   # Custom date range
         """)
