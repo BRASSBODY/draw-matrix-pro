@@ -1,11 +1,11 @@
-# Draw Matrix Pro v2.1 – COMPLETE PACKAGE ✅
+# Draw Matrix Pro v2.1 – COMPLETE PACKAGE  
 
 ## 📦 What You're Getting
 
 ### 1. **draw_agent_v2.1_COMPLETE.py** (1400 lines)
 The production-ready main engine with:
 
-✅ **Fixed Issues:**
+  **Fixed Issues:**
 - Dynamic team form scoring (replaces hardcoded 0.25)
 - Dynamic streaks scoring (replaces hardcoded 0.55)
 - Dynamic referee scoring (replaces hardcoded 0.50)
@@ -13,7 +13,7 @@ The production-ready main engine with:
 - Lowered probability cap from 0.60 → 0.50 (realistic)
 - Fixed None type error on `event.get('round_number')`
 
-✅ **Advanced Features:**
+  **Advanced Features:**
 - Kelly Criterion optimal bet sizing
 - True EV calculation (probability * odds - 1)
 - Motivation scoring (derby, relegation, news-based)
@@ -22,7 +22,7 @@ The production-ready main engine with:
 - Comprehensive logging with debug output
 - Full type hints and docstrings
 
-✅ **Production Ready:**
+  **Production Ready:**
 - GitHub Actions compatible
 - Supabase ready
 - Telegram alerts integrated
@@ -34,30 +34,30 @@ The production-ready main engine with:
 ### 2. **config_v2.1_COMPLETE.py** (300 lines)
 Complete configuration file with:
 
-✅ **Scoring Weights**
+  **Scoring Weights**
 - H2H: 20%, Recent H2H: 15%, Form: 15%, Streaks: 12%
 - League: 12%, Importance: 15%, Referee: 5%, Odds: 6%
 - Motivation: 10%
 - All validated to sum to ~1.0
 
-✅ **League Draw Rates**
+  **League Draw Rates**
 - Premier League, La Liga, Bundesliga, Serie A, Ligue 1
 - Championship, Eredivisie, J-League, K-League, etc.
 - 25+ major leagues calibrated
 
-✅ **Decision Thresholds**
+  **Decision Thresholds**
 - Kelly HIGH: 10% (HIGH confidence BET)
 - Kelly MEDIUM: 5% (MEDIUM confidence BET)
 - Kelly LOW: 2% (LOW confidence BORDERLINE)
 - Kelly < 2%: SKIP
 
-✅ **Risk Management**
+  **Risk Management**
 - Min/Max odds: 1.50 - 5.00
 - Min/Max unit sizing
 - H2H sample size thresholds
 - Staking guidelines
 
-✅ **News Keywords**
+  **News Keywords**
 - Motivation: must win, relegation, title race, derby, rested
 - Negative: injury crisis, fatigue, nothing to play for
 - Customize as needed
@@ -67,30 +67,30 @@ Complete configuration file with:
 ### 3. **V2.1_DEPLOYMENT_GUIDE.md** (200 lines)
 Step-by-step deployment with:
 
-✅ **5-Step Deployment Process**
+  **5-Step Deployment Process**
 1. Backup current system (2 min)
 2. Install v2.1 (1 min)
 3. Test locally (10 min)
 4. Verify GitHub Actions (5 min)
 5. Monitor first 24h (continuous)
 
-✅ **Testing Checklist**
+  **Testing Checklist**
 - Local test command
 - GitHub Actions verification
 - Log file inspection
 - Error troubleshooting
 
-✅ **Rollback Plan**
+  **Rollback Plan**
 - Instant rollback (< 30 seconds)
 - What to check after rollback
 - Complete reversibility guaranteed
 
-✅ **Configuration Reference**
+  **Configuration Reference**
 - Conservative vs Aggressive approaches
 - League rate calibration
 - Threshold tuning guide
 
-✅ **Success Metrics**
+  **Success Metrics**
 - Kelly distribution analysis
 - EV distribution tracking
 - Recommendation ratios
@@ -139,9 +139,9 @@ git add . && git commit -m "Deploy v2.1" && git push
 | **Decision logic** | Simple (prob >= 35%) | Intelligent (Kelly > 10%) |
 | **Confidence levels** | 3 options | 3 options (but better calibrated) |
 | **Output info** | Prob + Rec + Conf | + EV + Kelly + Reasoning |
-| **None safety** | ❌ Crashes | ✅ Safe checks |
+| **None safety** | ❌ Crashes |   Safe checks |
 | **Logging** | Basic | Comprehensive (debug-friendly) |
-| **Production ready** | Partial | ✅ Full |
+| **Production ready** | Partial |   Full |
 
 ---
 
@@ -162,7 +162,7 @@ if event.get('round_number', 0) >= 38:  # ❌ get() returns None, default not us
 **v2.1 Fix:**
 ```python
 round_num = event.get('round_number')
-if round_num is not None and round_num >= 38:  # ✅ Safe None check
+if round_num is not None and round_num >= 38:  #   Safe None check
 ```
 
 This is now bulletproof. GitHub Actions will succeed.
@@ -199,7 +199,7 @@ EV: +0.12 Kelly: 8.5% → BET | H2H draw rate: 33% (12 meetings) | Value odds (3
 
 ---
 
-## ✅ Quality Guarantees
+##   Quality Guarantees
 
 ✓ **Backward Compatible**
 - Database schema unchanged
@@ -308,6 +308,6 @@ If you hit any issues:
 
 Deploy with confidence. GitHub Actions will succeed. Your system is now significantly better.
 
-**Status: Ready to Deploy ✅**
+**Status: Ready to Deploy  **
 
 Let me know when you've deployed and I can help monitor the first run!
